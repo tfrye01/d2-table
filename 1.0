@@ -72,26 +72,6 @@
     {
         background-color: #200;
     }
-	
-	.p11
-	{
-		background-color: #101;
-	}
-	
-	.p22
-	{
-		background-color: #202;
-	}
-	
-	.w11
-	{
-		background-color: #555;
-	}
-	
-	.w22
-	{
-		background-color: #777;
-	}
 
     .g11
     {
@@ -132,6 +112,30 @@
     {
         background-color: #431; /* F4E4B7 653; */
     }
+	
+	 /*added*/
+	 
+	.p11
+	{
+		background-color: #101;
+	}
+	
+	.p22
+	{
+		background-color: #202;
+	}
+	
+	.w11
+	{
+		background-color: #555;
+	}
+	
+	.w22
+	{
+		background-color: #777;
+	}
+	
+	 /*added end*/
 
 
 /* ----- padding ----- */
@@ -160,7 +164,7 @@
 
     /* Area Levels */
     span.alvl83 { color: #0F0; }
-    span.alvl84 { color: #F80; } /* 08F or F80 */
+    span.alvl84 { color: #F80; } /* Swapped from 08F to F80 */
     span.alvl85 { color: #F00; }
 
     /* Layout -- Left / Center / Right */
@@ -483,35 +487,35 @@
         font-size  : 14px;
     }
 
-table.head
-{
-    border-collapse: collapse;
-    margin         : 0;
-    padding        : 0;
-    text-align     : left;
-    table-layout   : fixed; /* iOS */
-}
+	table.head
+	{
+		border-collapse: collapse;
+		margin         : 0;
+		padding        : 0;
+		text-align     : left;
+		table-layout   : fixed; /* iOS */
+	}
 
-th
-{
-    color      : #FF8; /* FF8 FFB Softer yellow */
-    white-space: pre;
-}
+	th
+	{
+		color      : #FF8; /* FF8 FFB Softer yellow */
+		white-space: pre;
+	}
 
-table, tr
-{
-    margin         : 0;
-    padding        : 0;
-    margin-block   : 0;
-    border-spacing : 0;
-    border-collapse: collapse;
-}
+	table, tr
+	{
+		margin         : 0;
+		padding        : 0;
+		margin-block   : 0;
+		border-spacing : 0;
+		border-collapse: collapse;
+	}
 
-td
-{
-    margin : 0;
-    padding: 0;
-}
+	td
+	{
+		margin : 0;
+		padding: 0;
+	}
 
 /* Top and Bottom line colors */
     tr.rt
@@ -609,20 +613,20 @@ td
     }
 
 /* ---------- Tool Tips ---------- */
-.runetip
-{
-    display       : inline-block;
-    position      : relative;
-    height        : 30px;
-    white-space   : pre;
-}
+	.runetip
+	{
+		display       : inline-block;
+		position      : relative;
+		height        : 30px;
+		white-space   : pre;
+	}
 
-.runetip:hover
-{
-    background-color: #888;
-    color           : #000;
-    cursor          : pointer;
-}
+	.runetip:hover
+	{
+		background-color: #888;
+		color           : #000;
+		cursor          : pointer;
+	}
 
     .runetip .runehelp1
     {
@@ -675,22 +679,22 @@ td
         z-index         : 1;
     }
 
-.runetip .gemtext
-{
-    background-color: #123;
-    border          : 1px solid #08F;
-    border-radius   : 4px;
-    color           : #ddd;
-    font-family     : sans-serif;
-    font-size       : 14px;
-    padding         : 5px 0;
-    position        : absolute;
-    text-align      : center;
-    visibility      : hidden;
-    width           : 280px; /* Ist */
-    white-space     : pre; /* see .gemhelp and gemtext */
-    z-index         : 1;
-}
+	.runetip .gemtext
+	{
+		background-color: #123;
+		border          : 1px solid #08F;
+		border-radius   : 4px;
+		color           : #ddd;
+		font-family     : sans-serif;
+		font-size       : 14px;
+		padding         : 5px 0;
+		position        : absolute;
+		text-align      : center;
+		visibility      : hidden;
+		width           : 280px; /* Ist */
+		white-space     : pre; /* see .gemhelp and gemtext */
+		z-index         : 1;
+	}
 
     /* Column 1 */
     .runetip:hover .runehelp1
@@ -1096,6 +1100,7 @@ SORTED =
 ];
 
 var COLUMNS = [ 0, 2, 22, 25, 49, 89, 93 ];
+// Multiple changes made on "S" tier
 var RECIPES = [
 //   S Name             Sock  Type                    Runes   #2      #3     #4    #5    #6  Lev  Version
     "* Ancient's Pledge    3  Shields                 Ral   + Ort   + Tal                     21  1.09",
@@ -1218,7 +1223,10 @@ var RECIPES = [
         gaSortBySockets  = [],
         gaSortBySuperior = [],
         gaSortByType     = [],
-        gaSortByVersion  = [];
+        gaSortByVersion  = []; /* Removed comma, added semi
+		
+		gaHolyGrailSets  = [],
+		gaHolyGrailUnqs  = []; */
 
     var gaRuneOrder =
     [
@@ -1230,6 +1238,24 @@ var RECIPES = [
         gaSortByMats5,
         gaSortByMats6
     ];
+	
+/* Removed function
+
+function DumpHolyGrail()
+{
+    var tc, totalSets = 0, totalUnqs = 0;
+
+    for( tc = 0; tc < TC_SETS.length; tc++ )
+        totalSets += TC_SETS[ tc ];
+
+    for( tc = 0; tc < TC_UNQS.length; tc++ )
+        totalUnqs += TC_UNQS[ tc ];
+
+console.log( "Total Sets: ", totalSets );
+console.log( "Total Unqs: ", totalUnqs );
+}
+
+*/
 
 function DumpRuneWordSorted( name, array )
 {
@@ -1395,6 +1421,36 @@ function dataLoad()
 
         updateManifest();
     }
+	
+	/* Removed
+	
+    var sets = localStorage.getItem( 'holygrailSets' );
+    if( sets )
+    {
+        temp = JSON.parse( sets );
+        if( temp.length != TC_SETS )
+        {
+            console.error( "WARNING: Couldn't load Holy Grail saved Sets" );
+        }
+        else
+            gaHolyGrailSets = temp;
+    }
+
+    var unqs = localStorage.getItem( 'holygrailUnqs' );
+    if( unqs )
+    {
+        temp = JSON.parse( unqs );
+        if( temp.length != TC_UNQS )
+        {
+            console.error( "WARNING: Couldn't load Holy Grail saved Uniques" );
+        }
+        else
+            gaHolyGrailUnqs = temp;
+    }
+
+    updateHolyGrail();
+	
+	*/
 
 }
 
@@ -1402,6 +1458,9 @@ function dataSave()
 {
     localStorage.setItem( 'availableRunes'   , JSON.stringify( gaAvailableRunes    ) );
     localStorage.setItem( 'favoriteRuneWords', JSON.stringify( gaFavoriteRuneWords ) );
+	/* Removed
+	localStorage.setItem( 'holygrailSets'    , JSON.stringify( gaHolyGrailSets     ) );
+    localStorage.setItem( 'holygrailUnqs'    , JSON.stringify( gaHolyGrailUnqs     ) ); */
 }
 
 // Optional: width
@@ -1661,7 +1720,20 @@ function onLoad()
     gaFavoriteRuneWords = new Array( RECIPES.length );
     gaFavoriteRuneWords.fill(0);
 
+    /* Removed
+	
+	gaHolyGrailSets  = new Array( NUM_SETS );
+    gaHolyGrailSets.fill(0);
+
+    gaHolyGrailUnqs  = new Array( NUM_UNQS );
+    gaHolyGrailUnqs.fill(0);*/
+
     dataLoad();
+	
+	/* Removed
+	
+	var btn = document.getElementById( 'btn_collapse_sockitems' );
+        btn.collapsed = true;*/
 
     // Sorting by Ladder really isn't useful any more
     onSortRuneWordsByName();
@@ -1845,6 +1917,32 @@ function selectRuneWordHeader( selected )
             );
     }
 
+/*Removed
+
+function updateHolyGrail()
+{
+    var i, totalSets = 0, totalUnqs = 0, elemSetsNum, elemSetsPercent, elemUnqsNum, elemUnqsPercent, s, u;
+
+    for( i = 0; i < NUM_SETS; i++ )
+        totalSets += gaHolyGrailSets[i];
+
+    for( i = 0; i < NUM_UNQS; i++ )
+        totalUnqs += gaHolyGrailUnqs = 0;
+
+    // round 2 digit places
+    s = ((10000 * totalSets) / NUM_SETS) | 0; s /= 100;
+    u = ((10000 * totalUnqs) / NUM_UNQS) | 0; u /= 100;
+
+    elemSetsNum = document.getElementById( 'manifest.hgs'  );  elemSetsPercent = document.getElementById( 'manifest.hgsp' );
+    elemUnqsNum = document.getElementById( 'manifest.hgu'  );  elemUnqsPercent = document.getElementById( 'manifest.hgup' );
+
+    elemSetsNum.innerText = "" + totalSets;
+    elemUnqsNum.innerText = "" + totalUnqs;
+
+    elemSetsPercent.innerText = "" + s.toLocaleString(); // + '.' + sd;
+    elemUnqsPercent.innerText = "" + u.toLocaleString(); // + '.' + ud;
+}*/
+
 function updateManifest()
 {
     var i, r, rune, runes, txt = '', work, manifest = document.getElementById( 'manifest' );
@@ -1921,7 +2019,7 @@ function updateRuneWordsOrder( array )
         var elem  = tr.firstChild;      // <td>
         //  elem.getAttributeNames();   // class
         //  elem.getAttribute('class'); // 'tooltip g11'
-            _removeClasses( elem, 'r11 r22 p11 p22 w11 w22 g11 g22 b11 b22 k11 k22 y44' );
+            _removeClasses( elem, 'r11 r22 p11 p22 w11 w22 g11 g22 b11 b22 k11 k22 y44' ); //added sets
 
 
         var isOdd = (row & 1); // don't include header row
@@ -2000,7 +2098,7 @@ function updateRuneWordsVisible()
 <button type='button' id='color'        disabled onclick='onColor(this)      ;'>Color</button>
 <button type='button' id='collapse_all'          onclick='onCollapseAll(this);'>Collapse</button>
     <br>
-    <br>
+    <br><!--Reformatted table-->
     <table class='head' style='min-width:730px' id='table.fcr'>
 		<tr class='bt bb'><th><span class='b'>Faster Cast Rate (<span class='fcr'>FCR</span>)</span>                             <a href='https://www.youtube.com/watch?v=ivm5cFeJYSA'>Hidden</a> 86 <a href='https://www.diabloii.net/forums/threads/druid-fcr-action-frames-good-info-for-pvp-elementalists-i.794229/'>breakpoint</a> *<div class='collapse'><button value='table.fcr' onclick='onCollapse(this);'>-</button></div><meta/></br>Frames  23  22  21  20  19  18  17  16  15   14   13   12   11   10    9    8    7</th></tr>
 		<tr><td class='tooltip k11'>Ama                      0   7  14  22  32   48   68   99  152                    </td></tr>
